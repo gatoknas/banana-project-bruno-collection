@@ -1,0 +1,15 @@
+{
+  "version": "1",
+  "name": "Banana Project API",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ],
+  "size": 0.0012578964233398438,
+  "filesCount": 19,
+  "presets": {
+    "requestType": "http",
+    "requestUrl": "http://localhost:8082"
+  }
+}

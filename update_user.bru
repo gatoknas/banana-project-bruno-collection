@@ -1,0 +1,23 @@
+meta {
+  name: Update User
+  type: http
+  seq: 8
+}
+
+put {
+  url: {{base_url}}/api/v1/users/{{user_id}}
+  body: json
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}
+
+body:json {
+  {
+    "fullName": "Daniel Salesperson Updated",
+    "role": "ayurami-salesperson",
+    "isActive": true
+  }
+}

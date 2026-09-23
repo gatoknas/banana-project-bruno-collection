@@ -1,0 +1,22 @@
+meta {
+  name: Sync Email Receipts
+  type: http
+  seq: 17
+}
+
+post {
+  url: {{base_url}}/api/v1/email-receipts/sync
+  body: json
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}
+
+body:json {
+  {
+    "from": "2026-09-01",
+    "to": "2026-09-21"
+  }
+}

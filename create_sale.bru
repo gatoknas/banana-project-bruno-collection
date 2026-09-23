@@ -1,0 +1,29 @@
+meta {
+  name: Create Sale
+  type: http
+  seq: 16
+}
+
+post {
+  url: {{base_url}}/api/v1/sales
+  body: json
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}
+
+body:json {
+  {
+    "userId": 1,
+    "totalAmount": 150.50,
+    "paymentMethod": "Cash",
+    "items": [
+      {
+        "productId": 1,
+        "quantity": 2.0
+      }
+    ]
+  }
+}

@@ -1,0 +1,27 @@
+meta {
+  name: Login
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{base_url}}/login
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "username": "daniel_canas",
+    "password": "Kondorito.mayo.2026"
+  }
+}
+
+script:post-response {
+  if (res.body && res.body.token) {
+    bru.setVar("token", res.body.token);
+  }
+  if (res.body && res.body.refreshToken) {
+    bru.setVar("refreshToken", res.body.refreshToken);
+  }
+}

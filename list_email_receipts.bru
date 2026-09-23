@@ -1,0 +1,15 @@
+meta {
+  name: List Email Receipts
+  type: http
+  seq: 18
+}
+
+get {
+  url: {{base_url}}/api/v1/email-receipts?from=2026-09-01&to=2026-09-21
+  body: none
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}

@@ -1,0 +1,18 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor/IDE
+.idea/
+.vscode/
+*.sw?
+
+# Bruno local overrides / secret environments
+.env
+.env.*
+*.local.bru
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
