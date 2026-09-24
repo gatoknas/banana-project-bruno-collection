@@ -1,0 +1,41 @@
+name: Bruno Collection CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  validate-collection:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: banana-project-bruno-collection
+
+      - uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository_owner }}/banana-project-go-api
+          path: banana-project-go-api
+          token: ${{ secrets.GITHUB_TOKEN }}
+        continue-on-error: true
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run Secret Scanner
+        working-directory: banana-project-bruno-collection
+        run: python ./scripts/secret_scanner.py
+
+      - name: Verify OpenAPI & Bruno Contract Synchronization
+        shell: pwsh
+        working-directory: banana-project-bruno-collection
+        run: |
+          if (Test-Path "../banana-project-go-api/docs/swagger.json") {
+            ./scripts/check-sync.ps1 -SpecPath "../banana-project-go-api/docs/swagger.json"
+          } else {
+            Write-Host "Sibling go-api repository not found in CI context, skipping sync verification."
+          }

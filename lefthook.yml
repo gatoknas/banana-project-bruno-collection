@@ -1,0 +1,6 @@
+pre-commit:
+  commands:
+    secret-scan:
+      run: python ./scripts/secret_scanner.py
+    api-sync:
+      run: pwsh ./scripts/check-sync.ps1
