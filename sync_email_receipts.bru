@@ -1,7 +1,13 @@
 meta {
-  name: Sync Email Receipts
+  name: Sync Receipts (Google Sheets)
   type: http
   seq: 17
+}
+
+docs {
+  Syncs digital-payment receipt registers on-demand from the Google Sheets document (`Datos_Ventas`).
+  Deduplication is handled automatically via `message_id` (Column J: `ID Mensaje`).
+  The body can be empty `{}` for a full on-demand sync, or `{ "from": "YYYY-MM-DD", "to": "YYYY-MM-DD" }` to filter by date range.
 }
 
 post {
@@ -17,6 +23,6 @@ headers {
 body:json {
   {
     "from": "2026-09-01",
-    "to": "2026-09-21"
+    "to": "2026-09-24"
   }
 }
