@@ -23,3 +23,11 @@ body:json {
     "taxId": "900123456-7"
   }
 }
+
+docs {
+  Registers a new raw materials / goods supplier.
+  - Required fields: `companyName` (string) and `phone` (string).
+  - Optional fields: `taxId` (string/null, unique when provided), `contactName` (string), and `email` (string).
+  Requires the ayurami-admin role.
+}
+
