@@ -1,0 +1,15 @@
+meta {
+  name: Delete Supplier
+  type: http
+  seq: 25
+}
+
+delete {
+  url: {{base_url}}/api/v1/suppliers/{{supplier_id}}
+  body: none
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}

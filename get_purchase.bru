@@ -1,0 +1,15 @@
+meta {
+  name: Get Purchase
+  type: http
+  seq: 28
+}
+
+get {
+  url: {{base_url}}/api/v1/purchases/{{purchase_id}}
+  body: none
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}

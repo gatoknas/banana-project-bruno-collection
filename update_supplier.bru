@@ -1,0 +1,25 @@
+meta {
+  name: Update Supplier
+  type: http
+  seq: 24
+}
+
+put {
+  url: {{base_url}}/api/v1/suppliers/{{supplier_id}}
+  body: json
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}
+
+body:json {
+  {
+    "companyName": "Distribuidora Frutera del Valle S.A.S.",
+    "contactName": "Carlos Mendoza",
+    "phone": "+57 300 987 6543",
+    "email": "ventas@distrifrutera.com",
+    "taxId": "900123456-7"
+  }
+}

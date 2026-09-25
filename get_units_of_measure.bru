@@ -1,0 +1,15 @@
+meta {
+  name: Get Units of Measure
+  type: http
+  seq: 20
+}
+
+get {
+  url: {{base_url}}/api/v1/units-of-measure
+  body: none
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}

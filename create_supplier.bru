@@ -1,0 +1,25 @@
+meta {
+  name: Create Supplier
+  type: http
+  seq: 21
+}
+
+post {
+  url: {{base_url}}/api/v1/suppliers
+  body: json
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}
+
+body:json {
+  {
+    "companyName": "Distribuidora Frutera S.A.",
+    "contactName": "Carlos Mendoza",
+    "phone": "+57 300 123 4567",
+    "email": "contacto@distrifrutera.com",
+    "taxId": "900123456-7"
+  }
+}
