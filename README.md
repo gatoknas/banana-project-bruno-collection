@@ -14,9 +14,9 @@ workspace root when that multi-root workspace is open in the IDE.
 
 ## Environments
 
-`{{base_url}}` is defined per environment (`environments/*.bru`). `{{user_id}}` and
-`{{product_id}}` are also there and default to `1`. `{{token}}` and `{{refreshToken}}` are
-runtime variables captured by the **Login** request's post-response script — never commit them.
+`{{base_url}}` is defined per environment (`environments/*.bru`). `{{user_id}}`,
+`{{product_id}}`, `{{supplier_id}}`, and `{{purchase_id}}` are also there and default to `1`.
+`{{token}}` and `{{refreshToken}}` are runtime variables captured by the **Login** request's post-response script — never commit them.
 
 ## Auth flow
 
@@ -27,7 +27,8 @@ runtime variables captured by the **Login** request's post-response script — n
 ## Requests (seq order)
 
 Status, Hello, Login, Refresh Token, Create/List/Get/Update/Delete User, Get Categories,
-Create/Get/Get-by-id/Update/Delete Product, Create Sale, Sync/List Email Receipts, PROD Hello.
+Create/Get/Get-by-id/Update/Delete Product, Create Sale, Sync/List Email Receipts, Get Revenue Summary,
+PROD Hello, Get Units of Measure, Create/List/Get/Update/Delete Supplier, Create/List/Get Purchase.
 
 ## Keeping it in sync
 

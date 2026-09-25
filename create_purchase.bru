@@ -1,0 +1,33 @@
+meta {
+  name: Create Purchase
+  type: http
+  seq: 26
+}
+
+post {
+  url: {{base_url}}/api/v1/purchases
+  body: json
+  auth: inherit
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}
+
+body:json {
+  {
+    "supplierId": 1,
+    "invoiceNumber": "FAC-2026-001",
+    "purchaseDate": "2026-09-24T10:00:00Z",
+    "notes": "Compra semanal de fruta e insumos",
+    "items": [
+      {
+        "productId": 1,
+        "purchaseUnitId": 3,
+        "quantityPurchased": 2.0,
+        "conversionFactor": 20.0,
+        "unitCost": 60000.0
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+meta {
+  name: List Suppliers
+  type: http
+  seq: 22
+}
+
+get {
+  url: {{base_url}}/api/v1/suppliers
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~search: Frutera
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}

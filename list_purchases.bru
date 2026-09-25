@@ -1,0 +1,21 @@
+meta {
+  name: List Purchases
+  type: http
+  seq: 27
+}
+
+get {
+  url: {{base_url}}/api/v1/purchases
+  body: none
+  auth: inherit
+}
+
+params:query {
+  ~supplierId: 1
+  ~fromDate: 2026-09-01
+  ~toDate: 2026-09-30
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}
