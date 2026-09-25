@@ -20,6 +20,14 @@ body:json {
     "contactName": "Carlos Mendoza",
     "phone": "+57 300 987 6543",
     "email": "ventas@distrifrutera.com",
-    "taxId": "900123456-7"
+    "taxId": "900123456-7",
+    "description": "Proveedor preferencial con entregas semanales los martes"
   }
+}
+
+docs {
+  Updates an existing supplier profile.
+  - Required fields: `companyName` (string) and `phone` (string).
+  - Optional fields: `taxId` (string/null, unique when provided), `contactName` (string), `email` (string), and `description` (string/null).
+  Requires the ayurami-admin role.
 }
