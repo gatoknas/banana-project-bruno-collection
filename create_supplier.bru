@@ -20,14 +20,15 @@ body:json {
     "contactName": "Carlos Mendoza",
     "phone": "+57 300 123 4567",
     "email": "contacto@distrifrutera.com",
-    "taxId": "900123456-7"
+    "taxId": "900123456-7",
+    "description": "Proveedor principal de fruta fresca y pulpa congelada"
   }
 }
 
 docs {
   Registers a new raw materials / goods supplier.
   - Required fields: `companyName` (string) and `phone` (string).
-  - Optional fields: `taxId` (string/null, unique when provided), `contactName` (string), and `email` (string).
+  - Optional fields: `taxId` (string/null, unique when provided), `contactName` (string), `email` (string), and `description` (string/null).
   Requires the ayurami-admin role.
 }
 
