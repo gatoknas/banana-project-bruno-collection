@@ -13,6 +13,7 @@ get {
 params:query {
   from: 2026-09-01
   to: 2026-09-23
+  interval: day
 }
 
 headers {
@@ -34,5 +35,15 @@ tests {
     expect(data).to.have.property('currency');
     expect(data).to.have.property('timeline');
     expect(Array.isArray(data.timeline)).to.be.true;
+  });
+
+  test("timeline buckets contain date, amount and count", function() {
+    const data = res.getBody();
+    if (data.timeline && data.timeline.length > 0) {
+      const bucket = data.timeline[0];
+      expect(bucket).to.have.property('date');
+      expect(bucket).to.have.property('amount');
+      expect(bucket).to.have.property('count');
+    }
   });
 }

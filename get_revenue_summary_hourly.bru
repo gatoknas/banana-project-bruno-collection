@@ -1,0 +1,42 @@
+meta {
+  name: Get Revenue Summary Hourly
+  type: http
+  seq: 20
+}
+
+get {
+  url: {{base_url}}/api/v1/email-receipts/summary?interval=hour
+  body: none
+  auth: inherit
+}
+
+params:query {
+  interval: hour
+}
+
+headers {
+  Authorization: Bearer {{token}}
+}
+
+tests {
+  test("status code is 200", function() {
+    expect(res.getStatus()).to.equal(200);
+  });
+  
+  test("response has valid revenue summary structure", function() {
+    const data = res.getBody();
+    expect(data).to.have.property('totalRevenue');
+    expect(data).to.have.property('transactionCount');
+    expect(data).to.have.property('averageTicket');
+    expect(data).to.have.property('timeline');
+    expect(Array.isArray(data.timeline)).to.be.true;
+  });
+
+  test("hourly timeline covers hours from 06:00 to 19:00", function() {
+    const data = res.getBody();
+    expect(data.timeline.length).to.be.at.least(14);
+    const slots = data.timeline.map(t => t.date);
+    expect(slots).to.include('06:00');
+    expect(slots).to.include('19:00');
+  });
+}
