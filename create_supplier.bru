@@ -18,7 +18,8 @@ body:json {
   {
     "companyName": "Distribuidora Frutera S.A.",
     "contactName": "Carlos Mendoza",
-    "phone": "+57 300 123 4567",
+    "phone": "+57 300 123 4567, +57 310 987 6543",
+    "address": "Cra 10 #20-30, Calle 5 #6-7",
     "email": "contacto@distrifrutera.com",
     "taxId": "900123456-7",
     "description": "Proveedor principal de fruta fresca y pulpa congelada"
@@ -27,8 +28,8 @@ body:json {
 
 docs {
   Registers a new raw materials / goods supplier.
-  - Required fields: `companyName` (string) and `phone` (string).
-  - Optional fields: `taxId` (string/null, unique when provided), `contactName` (string), `email` (string), and `description` (string/null).
+  - Required fields: `companyName` (string) and `phone` (string, comma-separated for multiple numbers).
+  - Optional fields: `taxId` (string/null, unique when provided), `contactName` (string), `address` (string/null, comma-separated for multiple addresses), `email` (string), and `description` (string/null).
   Requires the ayurami-admin role.
 }
 
