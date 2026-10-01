@@ -18,7 +18,8 @@ body:json {
   {
     "companyName": "Distribuidora Frutera del Valle S.A.S.",
     "contactName": "Carlos Mendoza",
-    "phone": "+57 300 987 6543",
+    "phone": "+57 300 987 6543, +57 320 111 2233",
+    "address": "Av 1 #2-3, Barrio Centro",
     "email": "ventas@distrifrutera.com",
     "taxId": "900123456-7",
     "description": "Proveedor preferencial con entregas semanales los martes"
@@ -27,7 +28,7 @@ body:json {
 
 docs {
   Updates an existing supplier profile.
-  - Required fields: `companyName` (string) and `phone` (string).
-  - Optional fields: `taxId` (string/null, unique when provided), `contactName` (string), `email` (string), and `description` (string/null).
+  - Required fields: `companyName` (string) and `phone` (string, comma-separated for multiple numbers).
+  - Optional fields: `taxId` (string/null, unique when provided), `contactName` (string), `address` (string/null, comma-separated for multiple addresses), `email` (string), and `description` (string/null).
   Requires the ayurami-admin role.
 }
